@@ -1,0 +1,33 @@
+{
+    "name": "content",
+    "version": "1.0.0",
+    "package":"content",
+    "type": "module",
+    "app": "*",
+    "privilege": "*",
+    "description": "A module to print content from database into the required area using php.",
+    "keywords": "logiks,modules,content",
+    "license": "MIT",
+    "marketid": "",
+    "homepage": "https://github.com/LogiksPlugins/content",
+    "bugs": "https://github.com/LogiksPlugins/content/issues",
+    "private": false,
+    "permissions": "",
+    "dependencies": {
+        "core": "*"
+    },
+    "directoryMap": {
+        "installer": ".install"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/LogiksPlugins/content.git"
+    },
+    "authors": [
+        {
+            "name": "OpenLogiks Team",
+            "email": "admin@openlogiks.org",
+            "authorid":"olgksadmin"
+        }
+    ]
+}

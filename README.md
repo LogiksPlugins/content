@@ -1,4 +1,4 @@
-content
+Content Plugin
 =======
 
-A module for Logiks Framework.
+A module to print content from database into the required area using php.
