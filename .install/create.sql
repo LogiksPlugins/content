@@ -1,4 +1,4 @@
-CREATE TABLE `do_contents` (
+CREATE TABLE `#DB_APPS#_contents` (
    `id` int(10) unsigned not null auto_increment,
    `reflink` varchar(75) not null,
    `title` varchar(255),
