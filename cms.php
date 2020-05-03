@@ -1,10 +1,10 @@
 <?php
 if(!defined('ROOT')) exit('No direct script access allowed');
 
-if(Database::checkConnection()<=1) {
-	print_error("Sorry, DB Connection required for Content Module");
-	return;
-}
+// if(Database::checkConnection()<=1) {
+// 	print_error("Sorry, DB Connection required for Content Module");
+// 	return;
+// }
 
 $dbTable=_db()->get_table("contents");
 $dbTableList=_db()->get_tableList();
