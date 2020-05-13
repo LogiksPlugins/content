@@ -1,13 +1,20 @@
-CREATE TABLE `#DB_APPS#_contents` (
-   `id` int(10) unsigned not null auto_increment,
-   `reflink` varchar(75) not null,
-   `title` varchar(255),
-   `category` varchar(255),
-   `tags` varchar(255),
-   `text` text,
-   `blocked` enum('true','false') default 'false',
-   `userid` varchar(155) not null,
-   `dtoc` datetime not null,
-   `dtoe` datetime not null,
-   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+CREATE TABLE `do_contents` ( 
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+    `reflink` varchar(75) NOT NULL, 
+    `slug` varchar(100) NOT NULL, 
+    `title` varchar(255) DEFAULT NULL, 
+    `category` varchar(255) DEFAULT NULL, 
+    `tags` varchar(255) DEFAULT NULL, 
+    `vers` int(11) NOT NULL DEFAULT '1', 
+    `published` enum('false','true') NOT NULL DEFAULT 'false', 
+    `published_on` datetime DEFAULT NULL, 
+    `published_by` varchar(155) DEFAULT NULL, 
+    `text_draft` text NOT NULL, 
+    `text_published` text, 
+    `blocked` enum('true','false') DEFAULT 'false', 
+    `created_by` varchar(155) NOT NULL, 
+    `created_on` datetime NOT NULL, 
+    `edited_by` varchar(155) NOT NULL, 
+    `edited_on` datetime NOT NULL, 
+    PRIMARY KEY (`id`) 
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
