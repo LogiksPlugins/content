@@ -49,7 +49,18 @@ if(!function_exists("getContent")) {
 		
     $data=$sql->_GET();
     
-    if(isset($data[0])) return $data[0]['txt'];
+    if(isset($data[0])) {
+    	$textContent = $data[0]['txt'];
+
+    	$textContent=str_replace("\\r\\n","\n",$textContent);
+		$textContent=str_replace("\\n","\n",$textContent);
+		$textContent=str_replace("&amp%3B","&amp;",$textContent);
+		$textContent=str_replace("%3B","",$textContent);
+		
+		//$textContent=stripslashes($textContent);
+
+    	return $textContent;
+    }
     else return "";
   }
   function getContentDraft($slugID,$lang="en") {
@@ -73,7 +84,18 @@ if(!function_exists("getContent")) {
 		
 		$data=$sql->_GET();
 		
-    if(isset($data[0])) return $data[0]['txt'];
+    if(isset($data[0])) {
+    	$textContent = $data[0]['txt'];
+
+    	$textContent=str_replace("\\r\\n","\n",$textContent);
+		$textContent=str_replace("\\n","\n",$textContent);
+		$textContent=str_replace("&amp%3B","&amp;",$textContent);
+		$textContent=str_replace("%3B","",$textContent);
+		
+		//$textContent=stripslashes($textContent);
+
+    	return $textContent;
+    }
     else return "";
   }
 }
