@@ -8,7 +8,7 @@ $(function() {
 	$('#componentTree').delegate(".list-group-item.list-file a","click",function() {
 		file=$(this).closest(".list-group-item");
 		
-		title=$(this).text();
+		title=$(this).find(".text").html();
 		slug=$(file).data("slug");
 		vers=$(file).data("vers");
 		
@@ -36,7 +36,7 @@ function listContent() {
 			$.each(v,function(m,n) {
 				//data-schema='"+k+"/"+n+"' 
 				html1+="<div class='list-group-item list-file' title='"+n.title+"' data-id='"+n.id+"' data-vers='"+n.vers+"' data-slug='"+n.slug+"'>";
-				html1+="<a href='#'><i class='fa fa-file'></i><span class='text'>"+n.title+"</span></a>";
+				html1+="<a href='#'><i class='fa fa-file'></i><span class='text'>"+n.title+"<label class='label label-danger'>"+n.lang+"</label></span></a>";
 				html1+="<input type='checkbox' name='selectFile' class='pull-right' data-slug='"+n.slug+"' data-title='"+n.title+"' /></div>";
 			});
 			html1+="</div>";
@@ -48,7 +48,7 @@ function listContent() {
 			$('#componentTree .list-group-item[data-slug="'+currentContent+'"]').addClass("active");
 			
 			tag=$('#componentTree .list-group-item[data-slug="'+currentContent+'"]');
-			title=$(tag).text();
+			title=$(tag).find(".text").html();
 			vers=$(tag).data("vers");
 			
 			$("#pgtoolbar .titleContent").html(title+" [v"+vers+"]");
@@ -255,5 +255,5 @@ function loadEditor(rid) {
 	
 	$(simplemde.gui.toolbar).append("<a class='fa fa-check no-disable pull-right' title='Publish Article' onclick='publishContentFile()'></a>");
 	
-	$(simplemde.gui.toolbar).append("<a class='fa fa-floppy-o no-disable pull-right' title='Save Article' onclick='saveContentFile()'></a>");
+	$(simplemde.gui.toolbar).append("<a class='fa fa-floppy-o fa-save no-disable pull-right' title='Save Article' onclick='saveContentFile()'></a>");
 }

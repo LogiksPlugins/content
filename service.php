@@ -2,16 +2,11 @@
 if(!defined('ROOT')) exit('No direct script access allowed');
 checkServiceSession();
 
-if(SITENAME!="cms") {
-	printServiceMSG("ONLY CMS can access this service.");
-	return;
-}
-
 include_once __DIR__."/api.php";
 
 switch($_REQUEST["action"]) {
 	case "list":
-		$data=_db()->_selectQ(_dbTable("contents"),"id,slug,title,category,tags,vers,blocked,published,published_on,published_by,created_by,created_on,edited_by,edited_on")->_GET();
+		$data=_db()->_selectQ(_dbTable("contents"),"id,slug,title,category,tags,vers,lang,blocked,published,published_on,published_by,created_by,created_on,edited_by,edited_on")->_GET();
 		
 		$fData=["NoGroup"=>[]];
 		foreach($data as $a=>$b) {
@@ -54,7 +49,7 @@ switch($_REQUEST["action"]) {
 		break;
 	case "properties":
 		if(isset($_POST['slug'])) {
-			$data=_db()->_selectQ(_dbTable("contents"),"title,category,tags,vers,blocked,published,created_by,created_on,edited_by,edited_on,published_on,published_by")
+			$data=_db()->_selectQ(_dbTable("contents"),"title,category,tags,vers,lang,blocked,published,created_by,created_on,edited_by,edited_on,published_on,published_by")
 								->_where(["slug"=>$_POST['slug']])->_GET();
 			
 			if(!isset($data[0])) echo "error: Content Not Found";

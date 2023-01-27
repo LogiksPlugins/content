@@ -1,8 +1,5 @@
 <?php
-if(SITENAME!="cms") {
-	echo("ONLY CMS can access this service.");
-	return;
-}
+if(!defined('ROOT')) exit('No direct script access allowed');
 
 $tableData=["vers","blocked","published","created_by","created_on","edited_by","edited_on","published_on","published_by"];
 ?>

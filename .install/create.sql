@@ -6,6 +6,8 @@ CREATE TABLE `do_contents` (
     `category` varchar(255) DEFAULT NULL, 
     `tags` varchar(255) DEFAULT NULL, 
     `vers` int(11) NOT NULL DEFAULT '1', 
+    `lang` varchar(25) NOT NULL DEFAULT 'en-gb',
+    `edit_type` varchar(25) NOT NULL DEFAULT 'markdown',
     `published` enum('false','true') NOT NULL DEFAULT 'false', 
     `published_on` datetime DEFAULT NULL, 
     `published_by` varchar(155) DEFAULT NULL, 
